@@ -141,13 +141,13 @@ declare(strict_types=1);
 //echo $function(5) . PHP_EOL;
 
 
-//function filter(string $text, ?closure $callback = null): string
-//{
-//    if (null !== $callback) {
-//        return $callback($text);
-//    }
-//    return $text;
-//}
+function filter(string $text, ?closure $callback = null): string
+{
+    if (null !== $callback) {
+        return $callback($text);
+    }
+    return $text;
+}
 //
 //$text = '     Text. hello world.              ';
 //$function = function (string $text) {
