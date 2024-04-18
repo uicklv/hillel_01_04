@@ -186,13 +186,13 @@
 //$array = explode(', ', $namesString);
 //var_dump($array);
 
-$array = ['test', 5, 'cba', 'ba', 1, 3];
+//$array = ['test', 5, 'cba', 'ba', 1, 3];
 
 //sort($array);
 //rsort($array);
 //arsort($array);
 //asort($array);
 //ksort($array);
-sort($array);
-
-print_r($array);
+//sort($array);
+//
+//print_r($array);
