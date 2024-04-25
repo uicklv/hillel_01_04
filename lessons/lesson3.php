@@ -123,7 +123,7 @@
 $number1 = 12;
 $number2 = 5;
 
-echo intdiv($number1, $number2) . PHP_EOL;
+echo lesson3 . phpintdiv($number1, $number2) . PHP_EOL;
 
 
 
