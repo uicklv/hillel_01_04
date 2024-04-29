@@ -47,3 +47,23 @@ function includeTemplate(string $path, array $variables = []): string
     return ob_get_clean();
 }
 
+function showPost(MainPost $post)
+{
+    echo $post->getBody();
+}
+
+function send(MessageInterface $messenger, string $message)
+{
+    $messenger->send($message);
+}
+
+
+//function showPost($post)
+//{
+//    if ($post instanceof Post) {
+//        echo "<h3>{$post->getTitle()}</h3><p>{$post->getContent()}</p>";
+//    } elseif($post instanceof News) {
+//        echo "<i>{$post->getTitle()}</i>:{$post->getContent()}";
+//    }
+//}
+

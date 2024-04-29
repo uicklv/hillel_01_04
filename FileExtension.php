@@ -3,7 +3,6 @@
 enum FileExtension: string
 {
     case TXT = 'txt';
-    case DOC = 'doc';
 
     public static function values(): array
     {
