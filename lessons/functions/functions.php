@@ -1,5 +1,8 @@
 <?php
 
+use hillel_01_04\lessons\MainPost;
+use hillel_01_04\lessons\MessageInterface;
+
 function logger(string $message, $type = 'action'): bool
 {
     $types = ['action', 'error'];

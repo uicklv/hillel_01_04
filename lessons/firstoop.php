@@ -92,7 +92,7 @@ class User
 }
 
 
-$user = new User('Jim', 'jim@gmail.com', 25);
+$user = new \hillel_01_04\lessons\User('Jim', 'jim@gmail.com', 25);
 
 //
 //$user2 = new User();
