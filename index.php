@@ -11,12 +11,12 @@ require_once 'system/Logger.php';
 require_once 'system/Validator.php';
 require_once 'controllers/AuthController.php';
 
-try {
+//try {
 //    $controller = new AuthController();
 //    $controller->register();
-} catch (Exception $e) {
-    echo $e->getMessage() . PHP_EOL;
-}
+//} catch (Exception $e) {
+//    echo $e->getMessage() . PHP_EOL;
+//}
 
 
 
@@ -125,17 +125,36 @@ try {
 //        echo "<i>{$post->getContent()}</i>";
 //    }
 //}
-require_once 'SOLID/OpenClosedGoodCode/Post.php';
-require_once 'SOLID/OpenClosedGoodCode/Blog.php';
-require_once 'SOLID/OpenClosedGoodCode/News.php';
+//require_once 'SOLID/OpenClosedGoodCode/Post.php';
+//require_once 'SOLID/OpenClosedGoodCode/Blog.php';
+//require_once 'SOLID/OpenClosedGoodCode/News.php';
+//
+//function showContent(Post $post): void
+//{
+//    $post->showContent();
+//}
+//
+//$post = new Blog('blog content');
+//$news = new News('news content');
+//showContent($news);
 
-function showContent(Post $post): void
-{
-    $post->showContent();
-}
 
-$post = new Blog('blog content');
-$news = new News('news content');
-showContent($news);
+//
+//enum Type: string
+//{
+//    case PROCESS = 'process';
+//    case ERROR = 'error';
+//    case SUCCESS = 'success';
+//}
+//
+//
+//function test(Type $enum)
+//{
+//    echo $enum->value;
+//}
+//
+//test(Type::SUCCESS);
+
+
 
 
