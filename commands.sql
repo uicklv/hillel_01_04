@@ -63,3 +63,7 @@ DELETE FROM `users` WHERE `id` = 1
 
 UPDATE `users` SET `deleted_at` = CURRENT_TIMESTAMP WHERE `id` = 3
 UPDATE `users` SET `deleted_at` = NULL, `name` = 'Undeleted' WHERE `id` = 3
+
+SELECT COUNT(`id`) as counter FROM `users` WHERE `age` > 25
+SELECT AVG(`age`) as avg_age FROM `users`
+SELECT SUM(`age`) as sum_age FROM `users`
