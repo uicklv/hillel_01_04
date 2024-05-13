@@ -156,5 +156,89 @@ require_once 'controllers/AuthController.php';
 //test(Type::SUCCESS);
 
 
+try {
+
+//    $dsn = 'mysql:host=mysql;port=3306;dbname=hillel';
+//    $database = new PDO($dsn, 'root', 'password');
+
+//    $result = $database->exec("INSERT INTO `users`(`name`, `email`, `age`, `gender`, `password`)
+//    VALUES ('Test', 'test@gmail.com', 35, 'male', 'testets')");
+
+//    $stmt = $database->query("SELECT * FROM `users` WHERE `id` = 5");
+//    $stmt = $database->query("SELECT * FROM `users`");
+//
+//   while ($row = $stmt->fetch()) {
+//       echo $row['name'] . "<br>";
+//   }
+//    $result = $stmt->fetchAll();
+//    $result = $stmt->fetch();
+
+//    echo "<pre>";
+//    print_r($result);
+//    echo "<pre>";
+
+} catch (PDOException $exception) {
+    echo $exception->getMessage();
+}
+
+//
+//try {
+//    $email = 'mike@ukr.net';
+//
+//
+//    $dsn = 'mysql:host=mysql;port=3306;dbname=hillel';
+//    $database = new PDO($dsn, 'root', 'password');
+//
+//    $sql = "SELECT * FROM `users` WHERE `email` = :userEmail";
+////    $sql = "SELECT * FROM `users` WHERE `email` = ?";
+//    $stmt = $database->prepare($sql);
+//    $stmt->execute(['userEmail' => $email]);
+//
+//    $result = $stmt->fetch();
+//
+//    echo "<pre>";
+//    print_r($result);
+//    echo "<pre>";
+//
+//} catch (PDOException $exception) {
+//    echo $exception->getMessage();
+//}
+
+//
+//
+//try {
+//    $email = 'mike@ukr.net';
+//
+//
+//    $dsn = 'mysql:host=mysql;port=3306;dbname=hillel';
+//    $database = new PDO($dsn, 'root', 'password');
+//
+//    $sql = "SELECT * FROM `users` WHERE `email` = :userEmail";
+////    $sql = "SELECT * FROM `users` WHERE `email` = ?";
+//    $stmt = $database->prepare($sql);
+//    $stmt->bindParam('userEmail', $email);
+//    $stmt->bindValue('userEmail', $email, PDO::PARAM_INT);
+//    $stmt->execute();
+//
+//    $result = $stmt->fetch();
+//
+//    echo "<pre>";
+//    print_r($result);
+//    echo "<pre>";
+//
+//} catch (PDOException $exception) {
+//    echo $exception->getMessage();
+//}
+
+require_once 'database/Connect.php';
+
+$dsn = 'mysql:host=mysql;port=3306;dbname=hillel';
+$database = Connect::getInstance();
+$database2 = Connect::getInstance();
+
+var_dump($database);
+var_dump($database2);
+
+
 
 
