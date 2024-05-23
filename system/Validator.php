@@ -2,29 +2,93 @@
 
 trait Validator
 {
+    public array $errors = [];
 
-    public function validate(array $data, array $rules)
+    private function required(string $fieldName): bool
     {
+        $value = Request::get($fieldName);
+        if (!$value) {
+            return false;
+        }
 
+        return true;
     }
 
-    public function required(string $name)
+    private function email(string $fieldName): bool
     {
+        if (filter_var(Request::get($fieldName), FILTER_VALIDATE_EMAIL)) {
+            return true;
+        }
 
+        return false;
     }
 
-    public function isEqual(string $string1, string $string2): bool
+    private function confirm(string $fieldName): bool
     {
-        return $string1 === $string2;
+        $fieldValue = Request::get($fieldName);
+        $confirmValue =  Request::get($fieldName . '_confirm');
+        if ($fieldValue !== $confirmValue) {
+            return false;
+        }
+
+        return true;
     }
 
-    public function maxLength(string $string, int $max): bool
+    public function validate(array $rules)
     {
-        return strlen($string) < $max;
+        if (!$rules) {
+            return;
+        }
+
+        foreach ($rules as $field => $rulesArray) {
+            foreach ($rulesArray as $rule) {
+                if ($rule == 'required') {
+                    if (!$this->required($field)) {
+                        $this->errors[$field][] = $this->getErrorMessage('required', $field);
+                    }
+                }
+
+                if ($rule == 'email') {
+                    if (!$this->email($field)) {
+                        $this->errors[$field][] = $this->getErrorMessage('email', $field);
+                    }
+                }
+
+                if ($rule == 'confirm') {
+                    if (!$this->confirm($field)) {
+                        $this->errors[$field][] = $this->getErrorMessage('confirm', $field);
+                    }
+                }
+            }
+        }
+
+        $this->checkErrors();
     }
 
-    public function minLength(string $string, int $min): bool
+    private function checkErrors(): void
     {
-        return strlen($string) > $min;
+        if ($this->errors) {
+            Session::set('validationErrors', $this->errors);
+            Response::redirect(Request::getReferer());
+        }
+    }
+
+    private function errorsMessages(): array
+    {
+        return [
+            'required' => 'The %s field is required.',
+            'email' => 'The %s field must be a valid email address.',
+            'confirm' => 'The %s field must be confirmed.',
+        ];
+    }
+
+    private function getErrorMessage(string $key, string $fieldName): string
+    {
+        $messages = $this->errorsMessages();
+        if (!isset($messages[$key])) {
+            throw new Exception('Invalid error message');
+        }
+
+        return sprintf($messages[$key], $fieldName);
     }
 }
