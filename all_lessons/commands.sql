@@ -68,6 +68,17 @@ SELECT COUNT(`id`) as counter FROM `users` WHERE `age` > 25
 SELECT AVG(`age`) as avg_age FROM `users`
 SELECT SUM(`age`) as sum_age FROM `users`
 
+CREATE TABLE IF NOT EXISTS `user_token`
+(
+    `id` INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    `user_id` INT UNSIGNED,
+    `token` CHAR(100) NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+    FOREIGN KEY (user_id) REFERENCES `users`(id)
+) ENGINE = InnoDB CHARACTER SET utf8
+
+
+
 
 
 

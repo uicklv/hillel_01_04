@@ -31,6 +31,8 @@ class Request
         if (isset($value)) {
             if ($mode == 'int') {
                 $value = filter_var($value,FILTER_SANITIZE_NUMBER_INT);
+            } else {
+                $value = filter_var($value,FILTER_SANITIZE_ADD_SLASHES);
             }
 
 //            $value = htmlspecialchars($value);

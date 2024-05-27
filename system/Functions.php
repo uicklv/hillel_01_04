@@ -27,3 +27,10 @@ function showError(string $key): void
         }
     }
 }
+
+function getMessage(string $key): string|null
+{
+    $message = Session::get($key);
+    Session::remove($key);
+    return $message;
+}
